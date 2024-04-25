@@ -1,0 +1,62 @@
+.loading {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 200px auto;
+
+  h3 {
+    font-size: 26px;
+    color: gray;
+  }
+
+  .loading-wrapper {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    span {
+      display: block;
+      width: 12px;
+      height: 12px;
+      background-color: gray;
+      border-radius: 50%;
+
+      &:not(.l-1) {
+        animation: 1s shift-left-ball linear infinite;
+      }
+    }
+
+    .l-1 {
+      animation: 1s jump-ball linear infinite;
+    }
+  }
+}
+
+@keyframes shift-left-ball {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-18px);
+  }
+}
+
+@keyframes jump-ball {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  30% {
+    transform: translate(0, -20px);
+  }
+
+  50% {
+    transform: translate(70px, -20px);
+  }
+
+  100% {
+    transform: translate(70px, 0);
+  }
+}
