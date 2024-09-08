@@ -1,15 +1,19 @@
-import { FC, useState, useEffect } from "react";
+import { FC, Dispatch, SetStateAction, useState, useEffect } from "react";
 import { useUpdateData } from "../../hooks/useUpdateData";
 
-import menu from "../../images/menu.png";
-import check from "../../images/check.png";
-import checkTrue from "../../images/check-true.png";
+import menu from "../../assets/menu.png";
+import check from "../../assets/check.png";
+import checkTrue from "../../assets/check-true.png";
+import cancel from "../../assets/cancel.png";
+import cancelTrue from "../../assets/cancel-true.png";
 
 import "./Navigation.scss";
 
 export interface INavigation {
   edit: boolean;
   checkValue: boolean;
+  isCancel: boolean;
+  setCancel: Dispatch<SetStateAction<boolean>>;
   openEditPage: (open?: boolean) => void;
   checkChangeValue: (active?: boolean) => void;
   changeNumerator: (active?: boolean) => void;
@@ -20,6 +24,8 @@ const Navigation: FC<INavigation> = ({
   openEditPage,
   edit,
   checkValue,
+  isCancel,
+  setCancel,
   checkChangeValue,
   changeNumerator,
   changeDenominator,
@@ -42,7 +48,7 @@ const Navigation: FC<INavigation> = ({
   return (
     <nav>
       <h3 className={alert ? "alert active" : "alert"}>
-        Данные были успешно изменены!
+        {isCancel ? "Изменения отменены!" : "Данные были успешно изменены!"}
       </h3>
       <div className={active ? "items-wrapper active" : "items-wrapper"}>
         <ul>
@@ -94,20 +100,37 @@ const Navigation: FC<INavigation> = ({
       </div>
 
       <div className="icons-wrapper">
-        <img
-          src={check}
-          alt="#"
-          className={edit && !checkValue ? "check visible" : "check"}
-        />
-        <img
-          src={checkTrue}
-          alt="#"
-          className={edit && checkValue ? "check-true visible" : "check-true"}
-          onClick={() => {
-            setAlert(true);
-            updateData();
-          }}
-        />
+        <div className="edit-icons">
+          <img
+            src={cancel}
+            alt="#"
+            className={edit && !checkValue ? "cancel visible" : "cancel"}
+          />
+          <img
+            src={cancelTrue}
+            alt="#"
+            className={edit && checkValue ? "cancel-true visible" : "cancel"}
+            onClick={() => {
+              setCancel(true);
+              setAlert(true);
+            }}
+          />
+
+          <img
+            src={check}
+            alt="#"
+            className={edit && !checkValue ? "check visible" : "check"}
+          />
+          <img
+            src={checkTrue}
+            alt="#"
+            className={edit && checkValue ? "check-true visible" : "check-true"}
+            onClick={() => {
+              setAlert(true);
+              updateData();
+            }}
+          />
+        </div>
 
         <img
           src={menu}

@@ -7,6 +7,7 @@ import CardItem from "./components/card-item/CardItem";
 import CardItemUpdate from "./components/cart-item-update/CardItemUpdate";
 import Navigation from "./components/navigation/Navigation";
 import Loading from "./components/loading/Loading";
+import AlertWindow from "./components/alert-window/AlertWindow";
 
 import "./App.scss";
 
@@ -15,6 +16,7 @@ const App: FC = () => {
   const { days } = useUpdateData();
 
   const [edit, setEdit] = useState<boolean>(false);
+  const [cancel, setCancel] = useState<boolean>(false);
   const [checkValue, setCheckValue] = useState<boolean>(false);
 
   const [loading, setLoading] = useState<boolean>(true);
@@ -66,7 +68,7 @@ const App: FC = () => {
 
   return (
     <>
-      {loading ? (
+      {false ? (
         <Loading />
       ) : (
         <>
@@ -74,6 +76,8 @@ const App: FC = () => {
             openEditPage={openEditPage}
             edit={edit}
             checkValue={checkValue}
+            isCancel={cancel}
+            setCancel={setCancel}
             checkChangeValue={checkChangeValue}
             changeNumerator={changeNumerator}
             changeDenominator={changeDenominator}
@@ -99,6 +103,8 @@ const App: FC = () => {
                   <CardItemUpdate
                     key={index}
                     day={keyDay}
+                    cancel={cancel}
+                    setCancel={setCancel}
                     checkChangeValue={checkChangeValue}
                     dayData={[
                       { time: "", lesson: { numerator: "", denominator: "" } },
@@ -111,12 +117,18 @@ const App: FC = () => {
                   <CardItemUpdate
                     key={index}
                     day={keyDay}
+                    cancel={cancel}
+                    setCancel={setCancel}
                     checkChangeValue={checkChangeValue}
                     dayData={dayData}
                   />
                 );
+
+              return null;
             })}
           </div>
+
+          <AlertWindow />
         </>
       )}
     </>

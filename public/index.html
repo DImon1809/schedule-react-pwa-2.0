@@ -50,6 +50,8 @@
             if (event.data && event.data.action === "reloadPage") {
               console.log("Перезагрузка страницы...");
 
+              localStorage.clear();
+
               window.location.reload();
             }
           });
