@@ -68,7 +68,7 @@ const App: FC = () => {
 
   return (
     <>
-      {false ? (
+      {loading ? (
         <Loading />
       ) : (
         <>

@@ -1,11 +1,11 @@
 import { FC, Dispatch, SetStateAction, useState, useEffect } from "react";
 import { useUpdateData } from "../../hooks/useUpdateData";
 
-import menu from "../../assets/menu.png";
-import check from "../../assets/check.png";
-import checkTrue from "../../assets/check-true.png";
-import cancel from "../../assets/cancel.png";
-import cancelTrue from "../../assets/cancel-true.png";
+import menu from "../../assets/menu.webp";
+import check from "../../assets/check.webp";
+import checkTrue from "../../assets/check-true.webp";
+import cancel from "../../assets/cancel.webp";
+import cancelTrue from "../../assets/cancel-true.webp";
 
 import "./Navigation.scss";
 
