@@ -9,10 +9,6 @@ export interface IDataRow {
 }
 
 const DataRow: FC<IDataRow> = ({ data, mainNumerator, mainDenominator }) => {
-  const [len] = useState<number>(
-    `${data.lesson?.numerator} ${data.lesson?.denominator}`.split("").length
-  );
-
   const [lenNumerator] = useState<number>(
     `${data.lesson?.numerator}`.split("").length
   );
@@ -34,23 +30,14 @@ const DataRow: FC<IDataRow> = ({ data, mainNumerator, mainDenominator }) => {
       >
         {data.time}
       </div>
-      <div
-        // className={
-        //   len > 180 || lenNumerator > 80 || lenDenominator > 80
-        //     ? "lesson big"
-        //     : "lesson"
-        // }
-
-        className="lesson"
-        // className={lenNumerator > 80 || lenDenominator > 80 ? le}
-      >
+      <div className="lesson">
         <div
           className={
             mainNumerator
               ? "numerator active"
               : mainDenominator
               ? "numerator unactive"
-              : lenNumerator > 80
+              : lenNumerator > 74
               ? "numerator big"
               : "numerator"
           }
@@ -63,7 +50,7 @@ const DataRow: FC<IDataRow> = ({ data, mainNumerator, mainDenominator }) => {
               ? "denominator active"
               : mainNumerator
               ? "denominator unactive"
-              : lenDenominator > 80
+              : lenDenominator > 74
               ? "denominator big"
               : "denominator"
           }
