@@ -35,11 +35,14 @@ const DataRow: FC<IDataRow> = ({ data, mainNumerator, mainDenominator }) => {
         {data.time}
       </div>
       <div
-        className={
-          len > 180 || lenNumerator > 80 || lenDenominator > 80
-            ? "lesson big"
-            : "lesson"
-        }
+        // className={
+        //   len > 180 || lenNumerator > 80 || lenDenominator > 80
+        //     ? "lesson big"
+        //     : "lesson"
+        // }
+
+        className="lesson"
+        // className={lenNumerator > 80 || lenDenominator > 80 ? le}
       >
         <div
           className={
@@ -47,6 +50,8 @@ const DataRow: FC<IDataRow> = ({ data, mainNumerator, mainDenominator }) => {
               ? "numerator active"
               : mainDenominator
               ? "numerator unactive"
+              : lenNumerator > 80
+              ? "numerator big"
               : "numerator"
           }
         >
@@ -58,6 +63,8 @@ const DataRow: FC<IDataRow> = ({ data, mainNumerator, mainDenominator }) => {
               ? "denominator active"
               : mainNumerator
               ? "denominator unactive"
+              : lenDenominator > 80
+              ? "denominator big"
               : "denominator"
           }
         >
