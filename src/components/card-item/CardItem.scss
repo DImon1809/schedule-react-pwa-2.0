@@ -86,7 +86,11 @@
 
           &.active {
             font-size: 16px;
-            height: 100%;
+            height: 90px;
+          }
+
+          &.active.big {
+            overflow-y: scroll;
           }
 
           &.unactive {
@@ -105,7 +109,11 @@
 
           &.active {
             font-size: 16px;
-            height: 100%;
+            height: 90px;
+          }
+
+          &.active.big {
+            overflow-y: scroll;
           }
 
           &.unactive {

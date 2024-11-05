@@ -34,7 +34,9 @@ const DataRow: FC<IDataRow> = ({ data, mainNumerator, mainDenominator }) => {
         <div
           className={
             mainNumerator
-              ? "numerator active"
+              ? lenNumerator > 80
+                ? "numerator active big"
+                : "numerator active"
               : mainDenominator
               ? "numerator unactive"
               : lenNumerator > 74
@@ -47,7 +49,9 @@ const DataRow: FC<IDataRow> = ({ data, mainNumerator, mainDenominator }) => {
         <div
           className={
             mainDenominator
-              ? "denominator active"
+              ? lenDenominator > 80
+                ? "denominator active big"
+                : "denominator active"
               : mainNumerator
               ? "denominator unactive"
               : lenDenominator > 74
