@@ -1,13 +1,13 @@
-import { FC, Dispatch, SetStateAction, useState, useEffect } from "react";
-import { useUpdateData } from "../../hooks/useUpdateData";
+import "./Navigation.scss";
 
-import menu from "../../assets/menu.webp";
-import check from "../../assets/check.webp";
-import checkTrue from "../../assets/check-true.webp";
+import { Dispatch, FC, SetStateAction, useEffect,useState } from "react";
+
 import cancel from "../../assets/cancel.webp";
 import cancelTrue from "../../assets/cancel-true.webp";
-
-import "./Navigation.scss";
+import check from "../../assets/check.webp";
+import checkTrue from "../../assets/check-true.webp";
+import menu from "../../assets/menu.webp";
+import { useUpdateData } from "../../hooks/useUpdateData";
 
 export interface INavigation {
   edit: boolean;

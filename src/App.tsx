@@ -1,15 +1,14 @@
-import { FC, useEffect, useState, useCallback } from "react";
+import "./App.scss";
 
-import { useWriteDefaultData } from "./hooks/useWriteDefaultData";
-import { useUpdateData } from "./hooks/useUpdateData";
+import { FC, useCallback, useEffect, useState } from "react";
 
+import AlertWindow from "./components/alert-window/AlertWindow";
 import CardItem from "./components/card-item/CardItem";
 import CardItemUpdate from "./components/cart-item-update/CardItemUpdate";
-import Navigation from "./components/navigation/Navigation";
 import Loading from "./components/loading/Loading";
-import AlertWindow from "./components/alert-window/AlertWindow";
-
-import "./App.scss";
+import Navigation from "./components/navigation/Navigation";
+import { useUpdateData } from "./hooks/useUpdateData";
+import { useWriteDefaultData } from "./hooks/useWriteDefaultData";
 
 const App: FC = () => {
   const { writeDefaultData } = useWriteDefaultData();
@@ -85,7 +84,7 @@ const App: FC = () => {
 
           <div className="card-items">
             {days.map((keyDay, index) => {
-              let dayData = JSON.parse(localStorage.getItem(keyDay) || "[]");
+              const dayData = JSON.parse(localStorage.getItem(keyDay) || "[]");
 
               if (dayData.length && !edit)
                 return (
@@ -106,9 +105,7 @@ const App: FC = () => {
                     cancel={cancel}
                     setCancel={setCancel}
                     checkChangeValue={checkChangeValue}
-                    dayData={[
-                      { time: "", lesson: { numerator: "", denominator: "" } },
-                    ]}
+                    dayData={[{ time: "", lesson: { numerator: "", denominator: "" } }]}
                   />
                 );
 

@@ -1,9 +1,9 @@
-import { FC, useState, useEffect } from "react";
+import "./AlertWindow.scss";
 
 import { observer } from "mobx-react-lite";
-import alertStore from "../../stores/alert-store";
+import { FC, useEffect,useState } from "react";
 
-import "./AlertWindow.scss";
+import alertStore from "../../stores/alert-store";
 
 const AlertWindow: FC = observer(() => {
   const [isClosure, setIsClosure] = useState<boolean>(false);

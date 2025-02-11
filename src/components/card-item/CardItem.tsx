@@ -1,11 +1,10 @@
-import { FC } from "react";
-import { translateDays } from "../../translateDays";
-
-import DataRow from "../data-row/DataRow";
-
 import "./CardItem.scss";
 
+import { FC } from "react";
+
 import { ILesson } from "../../hooks/defaultData";
+import { translateDays } from "../../translateDays";
+import DataRow from "../data-row/DataRow";
 
 export interface ICardItem {
   day: string;

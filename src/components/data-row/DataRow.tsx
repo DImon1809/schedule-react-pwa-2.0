@@ -9,13 +9,9 @@ export interface IDataRow {
 }
 
 const DataRow: FC<IDataRow> = ({ data, mainNumerator, mainDenominator }) => {
-  const [lenNumerator] = useState<number>(
-    `${data.lesson?.numerator}`.split("").length
-  );
+  const [lenNumerator] = useState<number>(`${data.lesson?.numerator}`.split("").length);
 
-  const [lenDenominator] = useState<number>(
-    `${data.lesson?.denominator}`.split("").length
-  );
+  const [lenDenominator] = useState<number>(`${data.lesson?.denominator}`.split("").length);
 
   return (
     <div className="data-row">

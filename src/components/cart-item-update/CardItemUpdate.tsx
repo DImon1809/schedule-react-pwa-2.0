@@ -1,20 +1,18 @@
-import {
-  FC,
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useState,
-  useCallback,
-} from "react";
-import { translateDays } from "../../translateDays";
-
-import alertStore from "../../stores/alert-store";
-
-import RowUpdate from "../row-update/RowUpdate";
-
 import "./CardItemUpdate.scss";
 
+import {
+  Dispatch,
+  FC,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
+
 import { ILesson } from "../../hooks/defaultData";
+import alertStore from "../../stores/alert-store";
+import { translateDays } from "../../translateDays";
+import RowUpdate from "../row-update/RowUpdate";
 
 export interface ICardItemUpdate {
   day: string;
@@ -47,7 +45,7 @@ const CardItemUpdate: FC<ICardItemUpdate> = ({
       ) {
         checkChangeValue();
 
-        let _temp = currentData;
+        const _temp = currentData;
 
         _temp.splice(index, 1, {
           time,

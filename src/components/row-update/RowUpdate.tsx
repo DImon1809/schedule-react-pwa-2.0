@@ -1,9 +1,8 @@
-import { FC, Dispatch, SetStateAction, useState, useEffect } from "react";
+import { Dispatch, FC, SetStateAction, useEffect,useState } from "react";
 
-import { ILesson } from "../../hooks/defaultData";
-
-import plus from "../../assets/plus.webp";
 import minus from "../../assets/minus.webp";
+import plus from "../../assets/plus.webp";
+import { ILesson } from "../../hooks/defaultData";
 
 export interface IRowUpdate {
   day: string;
